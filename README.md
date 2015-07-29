@@ -9,7 +9,7 @@ System.Runtime.Caching.Generic
 Overview
 --------
 
-This is a strongly-typed, generic, extensible, and thread-safe N-way set-associative cache, coming with 4 built-in eviction / replacement policies (LRU, MRU, LFU, none).
+This is a lightweight, strongly-typed, generic, extensible, and thread-safe N-way set-associative cache, coming with 4 built-in eviction / replacement policies (LRU, MRU, LFU, none).
 
 **Please read and accept** the terms of the [LICENSE](https://raw.githubusercontent.com/ysharplanguage/GenericMemoryCache/master/LICENSE.md), or else, do not use this library *as-is*.
 
@@ -24,6 +24,8 @@ Sample use
         {
             var lfuCache = new MemoryCache<int, string>();
             lfuCache.Policy = lfuCache.CreatePolicy(typeof(LfuEvictionPolicy<,>));
+            
+            // Note the default number of ways is 1, and the default capacity is 16...
             Assert.AreEqual(lfuCache.Capacity, AbstractCache.DefaultCapacity);
 
             var data =
