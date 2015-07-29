@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A09752DC-F1D3-4D48-B537-5DDCF622E5A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Runtime.Caching.Generic</RootNamespace>
+    <AssemblyName>System.Runtime.Caching.Generic</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractEvictingCache%28TKey, TValue%29.cs" />
+    <Compile Include="AbstractCache.cs" />
+    <Compile Include="CacheAccess.cs" />
+    <Compile Include="CacheAccessCallback%28TKey, TValue%29.cs" />
+    <Compile Include="AbstractCacheState%28TKey, TValue%29.cs" />
+    <Compile Include="Collections\Interfaces\IUseTrackingCollection%28TUnique%29.cs" />
+    <Compile Include="Collections\LfuEvictableCollection%28TKey%29.cs" />
+    <Compile Include="CacheEvictionCallback%28TKey, TValue%29.cs" />
+    <Compile Include="EvictionReason.cs" />
+    <Compile Include="FifoCacheEviction%28TKey, TValue%29.cs" />
+    <Compile Include="FifoEvictionPolicy%28TKey, TValue%29.cs" />
+    <Compile Include="Collections\DoubleEndedUniqueCollection%28TUnique%29.cs" />
+    <Compile Include="EvictionPriority.cs" />
+    <Compile Include="Interfaces\IEvictingCache%28TKey, TValue%29.cs" />
+    <Compile Include="Interfaces\ICacheState%28TKey, TValue%29.cs" />
+    <Compile Include="Interfaces\IAbstractCache%28TKey, TValue%29.cs" />
+    <Compile Include="LfuCacheEviction%28TKey, TValue%29.cs" />
+    <Compile Include="LfuEvictionPolicy%28TKey, TValue%29.cs" />
+    <Compile Include="LruEvictionPolicy%28TKey, TValue%29.cs" />
+    <Compile Include="MruEvictionPolicy%28TKey, TValue%29.cs" />
+    <Compile Include="MruCacheEviction%28TKey, TValue%29.cs" />
+    <Compile Include="LruCacheEviction%28TKey, TValue%29.cs" />
+    <Compile Include="NoEvictionPolicy%28TKey, TValue%29.cs" />
+    <Compile Include="NoCacheEviction%28TKey, TValue%29.cs" />
+    <Compile Include="AbstractCacheEviction%28TKey, TValue%29.cs" />
+    <Compile Include="CacheEvictionBase%28TKey, TValue%29.cs" />
+    <Compile Include="MemoryCacheBase%28TKey, TValue%29.cs" />
+    <Compile Include="AbstractMemoryCache%28TKey, TValue%29.cs" />
+    <Compile Include="MemoryCache%28TKey, TValue%29.cs" />
+    <Compile Include="MemorySubCache%28TKey, TValue%29.cs" />
+    <Compile Include="Collections\Interfaces\IDoubleEndedUniqueCollection%28TUnique%29.cs" />
+    <Compile Include="Interfaces\IMemoryCache%28TKey, TValue%29.cs" />
+    <Compile Include="CachePolicyBase%28TKey, TValue%29.cs" />
+    <Compile Include="Interfaces\ICacheEviction%28TKey, TValue%29.cs" />
+    <Compile Include="Interfaces\IManagedCache%28TKey, TValue%29.cs" />
+    <Compile Include="Interfaces\ICachePolicy%28TKey, TValue%29.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagrams\System.Runtime.Caching.Generic.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
