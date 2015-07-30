@@ -13,7 +13,7 @@ This is a lightweight, strongly-typed, generic, extensible, and thread-safe, N-w
 
 **Please read and accept** the terms of the [LICENSE](https://raw.githubusercontent.com/ysharplanguage/GenericMemoryCache/master/LICENSE.md), or else, do not use this library *as-is*.
 
-<a name="Sample">Sample use</a>
+<a name="Sample"></a>
 
 Sample use
 ----------
