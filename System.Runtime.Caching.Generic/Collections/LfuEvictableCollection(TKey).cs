@@ -180,8 +180,12 @@ namespace System.Runtime.Caching.Generic.Collections
             KeyUse use;
             if (uses.TryGetValue(key, out use))
             {
+                var msb = use.Msb;
                 TotalUseCount -= use.Count;
-                keys[use.Msb].Remove(key);
+                if (keys.ContainsKey(msb))
+                {
+                    keys[msb].Remove(key);
+                }
                 uses.Remove(key);
                 return true;
             }
