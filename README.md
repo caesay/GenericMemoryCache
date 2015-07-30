@@ -3,6 +3,7 @@ System.Runtime.Caching.Generic
 
 * <a href="#Overview">Overview</a>
 * <a href="#Sample">Sample use</a>
+* <a href="#ObjectModel">Object model</a>
 
 <a name="Overview"></a>
 
@@ -84,3 +85,12 @@ Sample use
             Assert.AreEqual(lfuCache.Contains(17), true);
             Assert.AreEqual(lfuCache.Contains(18), true);
         }
+		
+<a name="ObjectModel"></a>
+
+Object model
+------------
+
+![System.Runtime.Caching.Generic][System.Runtime.Caching.Generic.png]
+
+[System.Runtime.Caching.Generic.png]: http://i.imgur.com/Wj7yl0s.png "System.Runtime.Caching.Generic"
