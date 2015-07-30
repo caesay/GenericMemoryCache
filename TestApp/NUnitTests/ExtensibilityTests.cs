@@ -150,6 +150,7 @@ namespace TestApp
 
             lfuCache.Put(18, "String 18");
             Assert.AreEqual(lfuCache.Contains(3), false);
+            Assert.AreEqual(lfuCache.Contains(17), true);
             Assert.AreEqual(lfuCache.Contains(18), true);
         }
     }
