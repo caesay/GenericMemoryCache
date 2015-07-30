@@ -11,6 +11,8 @@ Overview
 
 This is a lightweight, strongly-typed, generic, extensible, and thread-safe, N-way set-associative, in-process (memory) cache, coming with 4 built-in eviction / replacement policies (LRU, MRU, LFU, none).
 
+The TestApp console application accompanying the library comes with a few (NUnit) tests wrt. correctness, robustness, and extensibility, along with a basic comparative performance / stress test vs. Microsoft's System.Runtime.Caching introduced in .NET 4.0.
+
 **Please read and accept** the terms of the [LICENSE](https://raw.githubusercontent.com/ysharplanguage/GenericMemoryCache/master/LICENSE.md), or else, do not use this library *as-is*.
 
 <a name="Sample"></a>
