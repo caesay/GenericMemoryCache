@@ -9,7 +9,7 @@ System.Runtime.Caching.Generic
 Overview
 --------
 
-This is a lightweight, strongly-typed, generic, extensible, and thread-safe N-way set-associative cache, coming with 4 built-in eviction / replacement policies (LRU, MRU, LFU, none).
+This is a lightweight, strongly-typed, generic, extensible, and thread-safe, N-way set-associative, in-process (memory) cache, coming with 4 built-in eviction / replacement policies (LRU, MRU, LFU, none).
 
 **Please read and accept** the terms of the [LICENSE](https://raw.githubusercontent.com/ysharplanguage/GenericMemoryCache/master/LICENSE.md), or else, do not use this library *as-is*.
 
