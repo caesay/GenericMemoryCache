@@ -41,13 +41,13 @@ namespace TestApp
             expected[9] = 2;
 
             var hfrCache = new MemoryCache<int, string>();
-            var hfrPolicy = hfrCache.CreatePolicy(typeof(NoEvictionPolicy<,>));
-            hfrPolicy.OnGet =
+            hfrCache.SetPolicy(typeof(NoEvictionPolicy<,>));
+            hfrCache.Policy.OnGet =
                 delegate(IManagedCache<int, string> source, int key, string value)
                 {
                     hits[key]++;
                 };
-            hfrCache.Policy = hfrPolicy;
+
             Assert.AreEqual(hfrCache.Capacity, AbstractCache.DefaultCapacity);
 
             // Cache all the (16) non-empty strings
@@ -96,7 +96,7 @@ namespace TestApp
         public void Test002_BasicLFUCacheSemantic()
         {
             var lfuCache = new MemoryCache<int, string>();
-            lfuCache.Policy = lfuCache.CreatePolicy(typeof(LfuEvictionPolicy<,>));
+            lfuCache.SetPolicy(typeof(LfuEvictionPolicy<,>));
             Assert.AreEqual(lfuCache.Capacity, AbstractCache.DefaultCapacity);
 
             var data =

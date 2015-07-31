@@ -37,6 +37,11 @@ namespace System.Runtime.Caching.Generic
             return (ICachePolicy<TKey, TValue>)Activator.CreateInstance(genericPolicyType.MakeGenericType(typeof(TKey), typeof(TValue)), args);
         }
 
+        public void SetPolicy(Type genericPolicyType, params object[] args)
+        {
+            Policy = CreatePolicy(genericPolicyType, args);
+        }
+
         public ICachePolicy<TKey, TValue> Policy
         {
             get

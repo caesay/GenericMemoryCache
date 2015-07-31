@@ -67,7 +67,7 @@ namespace TestApp
         public void Test002_CannotSetThePolicyOfANonEmptyCache()
         {
             var nonEmptyCache = new MemoryCache<int, int>();
-            nonEmptyCache.Policy = nonEmptyCache.CreatePolicy(typeof(NoEvictionPolicy<,>));
+            nonEmptyCache.SetPolicy(typeof(NoEvictionPolicy<,>));
 
             nonEmptyCache.Add(1, 1);
             nonEmptyCache.Policy = null;

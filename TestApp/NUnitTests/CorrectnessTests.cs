@@ -86,7 +86,7 @@ namespace TestApp
         public void Test003_BasicLRUCacheSemantic()
         {
             var lruCache = new MemoryCache<int, int>();
-            lruCache.Policy = lruCache.CreatePolicy(typeof(LruEvictionPolicy<,>));
+            lruCache.SetPolicy(typeof(LruEvictionPolicy<,>));
 
             Assert.AreEqual(lruCache.Capacity, AbstractCache.DefaultCapacity);
 
@@ -119,7 +119,7 @@ namespace TestApp
         public void Test004_BasicThreeWayLRUCacheSemanticDefaultIndexer()
         {
             var lruCacheDefault = new MemoryCache<int, int>(15, 3);
-            lruCacheDefault.Policy = lruCacheDefault.CreatePolicy(typeof(LruEvictionPolicy<,>));
+            lruCacheDefault.SetPolicy(typeof(LruEvictionPolicy<,>));
 
             Assert.AreEqual(lruCacheDefault.Capacity, 15);
 
@@ -151,7 +151,7 @@ namespace TestApp
         public void Test005_BasicThreeWayLRUCacheSemanticExplicitIndexer()
         {
             var lruCache = new MemoryCache<int, int>(15, 3, k => k % 3);
-            lruCache.Policy = lruCache.CreatePolicy(typeof(LruEvictionPolicy<,>));
+            lruCache.SetPolicy(typeof(LruEvictionPolicy<,>));
 
             Assert.AreEqual(lruCache.Capacity, 15);
 
@@ -183,7 +183,7 @@ namespace TestApp
         public void Test006_BasicMRUCacheSemantic()
         {
             var mruCache = new MemoryCache<int, int>();
-            mruCache.Policy = mruCache.CreatePolicy(typeof(MruEvictionPolicy<,>));
+            mruCache.SetPolicy(typeof(MruEvictionPolicy<,>));
             Assert.AreEqual(mruCache.Capacity, AbstractCache.DefaultCapacity);
 
             mruCache.Add(19, 19);
