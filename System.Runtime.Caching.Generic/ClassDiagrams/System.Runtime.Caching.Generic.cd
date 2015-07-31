@@ -18,7 +18,7 @@
   <Class Name="System.Runtime.Caching.Generic.AbstractEvictingCache&lt;TKey, TValue&gt;" Collapsed="true">
     <Position X="10" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACIAAAAAAAAAwBBACAIARAACAAAAAAAIAAIBAAAQAAg=</HashCode>
+      <HashCode>ACIAAAAAAAAAQBBACAIARAQCAAAAAAAIAAIBAAAYAAg=</HashCode>
       <FileName>AbstractEvictingCache(TKey, TValue).cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -84,14 +84,14 @@
   <Class Name="System.Runtime.Caching.Generic.MemoryCacheBase&lt;TKey, TValue&gt;" Collapsed="true">
     <Position X="11" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAICAAIAAAAAwABBAAIABAACAAAAAAAIAAABAAAQAAg=</HashCode>
+      <HashCode>AAICAAIAAAAAQABBAAIABAQCAAAAAAAIAAABAAAQAAg=</HashCode>
       <FileName>MemoryCacheBase(TKey, TValue).cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="System.Runtime.Caching.Generic.MemorySubCache&lt;TKey, TValue&gt;" Collapsed="true">
     <Position X="9" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAwABAAAIAFAACAAAAQhAIAAIBBAAQAAg=</HashCode>
+      <HashCode>AAIAAAAAAAAAQABAAAIAFAQCAAAAQhAIAAIBBAAQAAg=</HashCode>
       <FileName>MemorySubCache(TKey, TValue).cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -164,7 +164,7 @@
   <Interface Name="System.Runtime.Caching.Generic.IAbstractCache&lt;TKey, TValue&gt;" Collapsed="true">
     <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAACAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAQCAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IAbstractCache(TKey, TValue).cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -220,7 +220,7 @@
   <Interface Name="System.Runtime.Caching.Generic.IEvictingCache&lt;TKey, TValue&gt;" Collapsed="true">
     <Position X="6.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAIAAA=</HashCode>
       <FileName>Interfaces\IEvictingCache(TKey, TValue).cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -248,14 +248,14 @@
   <Delegate Name="System.Runtime.Caching.Generic.CacheEvictionCallback&lt;TKey, TValue&gt;" Collapsed="true">
     <Position X="4.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAQAQAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAgAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>CacheEvictionCallback(TKey, TValue).cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="System.Runtime.Caching.Generic.CacheAccessCallback&lt;TKey, TValue&gt;" Collapsed="true">
     <Position X="4.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQAQAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>CacheAccessCallback(TKey, TValue).cs</FileName>
     </TypeIdentifier>
   </Delegate>
