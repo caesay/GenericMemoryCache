@@ -26,7 +26,7 @@ Sample use
         public void Test_BasicLFUCacheSemantic()
         {
             var lfuCache = new MemoryCache<int, string>();
-            lfuCache.Policy = lfuCache.CreatePolicy(typeof(LfuEvictionPolicy<,>));
+            lfuCache.SetPolicy(typeof(LfuEvictionPolicy<,>));
             
             // Note the default number of ways is 1, and the default capacity is 16...
             Assert.AreEqual(lfuCache.Capacity, AbstractCache.DefaultCapacity);
