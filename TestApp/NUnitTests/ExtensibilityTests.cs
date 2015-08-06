@@ -61,25 +61,25 @@ namespace TestApp
             {
                 for (var i = 1; i < data.Length; i++)
                 {
-                    // ... except for String 3, used only twice...
+                    // ... except for "String 3", used only twice...
                     if (i == 3)
                     {
                         if (use <= 2)
                         {
-                            var s = hfrCache[i];
+                            var s = hfrCache.Get(i);
                         }
                     }
-                    // ... and for String 9, used only once
+                    // ... and for "String 9", used only once
                     else if (i == 9)
                     {
                         if (use <= 1)
                         {
-                            var s = hfrCache[i];
+                            var s = hfrCache.Get(i);
                         }
                     }
                     else
                     {
-                        var s = hfrCache[i];
+                        var s = hfrCache.Get(i);
                     }
                 }
             }
@@ -116,25 +116,25 @@ namespace TestApp
             {
                 for (var i = 1; i < data.Length; i++)
                 {
-                    // ... except for String 3, used only twice...
+                    // ... except for "String 3", used only twice...
                     if (i == 3)
                     {
                         if (use <= 2)
                         {
-                            var s = lfuCache[i];
+                            var s = lfuCache.Get(i);
                         }
                     }
-                    // ... and for String 9, used only once
+                    // ... and for "String 9", used only once
                     else if (i == 9)
                     {
                         if (use <= 1)
                         {
-                            var s = lfuCache[i];
+                            var s = lfuCache.Get(i);
                         }
                     }
                     else
                     {
-                        var s = lfuCache[i];
+                        var s = lfuCache.Get(i);
                     }
                 }
             }

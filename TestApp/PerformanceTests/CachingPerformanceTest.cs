@@ -57,7 +57,7 @@ namespace TestApp
             var msPolicy = new System.Runtime.Caching.CacheItemPolicy();
             msPolicy.Priority = System.Runtime.Caching.CacheItemPriority.Default;
 
-            var ourMemCache = new MemoryCache<int, Datum>(TOTAL_DATUM_COUNT / 5);
+            IMemoryCache ourMemCache = new MemoryCache<int, Datum>(TOTAL_DATUM_COUNT / 5);
             ourMemCache.SetPolicy(typeof(MruEvictionPolicy<,>));
             Console.WriteLine();
             Console.WriteLine("... caches prepared.");
@@ -131,11 +131,12 @@ namespace TestApp
                 };
             var time2 = Time.Start();
             var period2 = 0d;
+            var misses = 0;
             for (var a = 0; a < access.Length; a++)
             {
                 var index = access[a];
                 var datum = data[index];
-                var item = ourMemCache.GetOrAdd(datum.Id, datum);
+                var item = ourMemCache.GetOrAdd(datum.Id, (Func<object, Datum>)delegate(object context){ misses++; return datum; });
                 if (item.Id != datum.Id || item.SomePayload != datum.SomePayload)
                 {
                     throw new Exception("Ouch. Unexpected item.");
@@ -154,6 +155,7 @@ namespace TestApp
             Console.WriteLine("Latency: {0} ms (avg.)", period2 / RandomAccessCount);
             Console.WriteLine("Initial cache capacity: {0}", ourMemCache.Capacity.ToString("0,0"));
             Console.WriteLine("Final cache size: {0}", ourMemCache.Count.ToString("0,0"));
+            Console.WriteLine("No. cache misses: {0}", misses.ToString("0,0"));
             Console.WriteLine("Cache fill ratio: {0}%", (100 * ourMemCache.Count / ourMemCache.Capacity).ToString(".00"));
         }
 

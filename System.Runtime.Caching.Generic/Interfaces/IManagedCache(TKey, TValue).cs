@@ -43,6 +43,15 @@ namespace System.Runtime.Caching.Generic
         TValue GetOrAdd(TKey key, TValue value);
 
         /// <summary>
+        /// Gets or adds the given value for the given key. For an evicting cache, this may or may not cause an eviction (eviction reason: Policy).
+        /// </summary>
+        /// <param name="key">The value's key</param>
+        /// <param name="updater">The updater that obtains the value to add, if the key isn't found</param>
+        /// <param name="context">The update context to use when calling the updater</param>
+        /// <returns>The existing cached value, if any, or the value obtained from the updater, the second parameter</returns>
+        TValue GetOrAdd<TContext>(TKey key, Func<TContext, TValue> updater, TContext context = default(TContext));
+
+        /// <summary>
         /// Attempts to add the given value for the given key. For an evicting cache, this may or may not cause an eviction (eviction reason: Policy).
         /// </summary>
         /// <param name="key">The value's key</param>

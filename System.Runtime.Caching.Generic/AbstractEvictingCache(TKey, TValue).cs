@@ -68,6 +68,8 @@ namespace System.Runtime.Caching.Generic
 
         public abstract TValue GetOrAdd(TKey key, TValue value);
 
+        public abstract TValue GetOrAdd<TContext>(TKey key, Func<TContext, TValue> updater, TContext context);
+
         public abstract bool Add(TKey key, TValue value);
 
         public abstract void Put(TKey key, TValue value);

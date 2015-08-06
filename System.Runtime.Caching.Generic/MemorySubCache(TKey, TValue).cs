@@ -138,6 +138,20 @@ namespace System.Runtime.Caching.Generic
             }
         }
 
+        public override TValue GetOrAdd<TContext>(TKey key, Func<TContext, TValue> updater, TContext context)
+        {
+            lock (SyncRoot)
+            {
+                TValue cached;
+                if (!InternalTryGet(key, out cached))
+                {
+                    cached = updater(context);
+                    InternalSet(key, cached, false);
+                }
+                return cached;
+            }
+        }
+
         public override bool Add(TKey key, TValue value)
         {
             lock (SyncRoot)

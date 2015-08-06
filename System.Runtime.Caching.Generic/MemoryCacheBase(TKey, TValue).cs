@@ -87,6 +87,11 @@ namespace System.Runtime.Caching.Generic
             return GetSubCache(key).GetOrAdd(key, value);
         }
 
+        public override TValue GetOrAdd<TContext>(TKey key, Func<TContext, TValue> updater, TContext context)
+        {
+            return GetSubCache(key).GetOrAdd(key, updater, context);
+        }
+
         public override bool Add(TKey key, TValue value)
         {
             return GetSubCache(key).Add(key, value);
