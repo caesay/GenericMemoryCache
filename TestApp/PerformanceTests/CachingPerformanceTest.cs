@@ -57,7 +57,7 @@ namespace TestApp
             var msPolicy = new System.Runtime.Caching.CacheItemPolicy();
             msPolicy.Priority = System.Runtime.Caching.CacheItemPriority.Default;
 
-            IMemoryCache ourMemCache = new MemoryCache<int, Datum>(TOTAL_DATUM_COUNT / 5);
+            IMemoryCache<int, Datum> ourMemCache = new MemoryCache<int, Datum>(TOTAL_DATUM_COUNT / 5);
             ourMemCache.SetPolicy(typeof(MruEvictionPolicy<,>));
             Console.WriteLine();
             Console.WriteLine("... caches prepared.");
