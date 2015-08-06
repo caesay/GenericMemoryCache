@@ -65,98 +65,102 @@ namespace TestApp
             var accessPercent = RandomAccessCount / 100;
 
             Console.WriteLine();
-            Console.WriteLine("Press any key...");
-            Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine("About to stress Microsoft's {0}...", typeof(System.Runtime.Caching.MemoryCache).FullName);
-            Console.WriteLine();
-            Console.WriteLine("Total datum count : {0}", TOTAL_DATUM_COUNT.ToString("0,0"));
-            Console.WriteLine();
-            Console.WriteLine("Number of random accesses to perform : {0}", RandomAccessCount.ToString("0,0"));
-            Console.WriteLine();
-            Console.WriteLine("Press any key (and hang on)...");
-            Console.WriteLine();
-            Console.ReadKey();
-            Console.WriteLine("Time... {0}", DateTime.Now.ToString("HH:mm:ss.fff"));
-            Console.WriteLine();
-
-            var time1 = Time.Start();
-            var period1 = 0d;
-            for (var a = 0; a < access.Length; a++)
+            Console.WriteLine("Press ESC to skip, or any other key to start stressing .NET's memory cache.");
+            if (Console.ReadKey().KeyChar != 27)
             {
-                var index = access[a];
-                var datum = data[index];
-                var item = (Datum)msMemCache.AddOrGetExisting(datum.Id.ToString(), datum, msPolicy) ?? datum;
-                if (item.Id != datum.Id || item.SomePayload != datum.SomePayload)
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine("About to stress Microsoft's {0}...", typeof(System.Runtime.Caching.MemoryCache).FullName);
+                Console.WriteLine();
+                Console.WriteLine("Total datum count : {0}", TOTAL_DATUM_COUNT.ToString("0,0"));
+                Console.WriteLine();
+                Console.WriteLine("Number of random accesses to perform : {0}", RandomAccessCount.ToString("0,0"));
+                Console.WriteLine();
+                Console.WriteLine("Press any key (and hang on)...");
+                Console.WriteLine();
+                Console.ReadKey();
+                Console.WriteLine("Time... {0}", DateTime.Now.ToString("HH:mm:ss.fff"));
+                Console.WriteLine();
+
+                var time1 = Time.Start();
+                var period1 = 0d;
+                for (var a = 0; a < access.Length; a++)
                 {
-                    throw new Exception("Ouch. Unexpected item.");
+                    var index = access[a];
+                    var datum = data[index];
+                    var item = (Datum)msMemCache.AddOrGetExisting(datum.Id.ToString(), datum, msPolicy) ?? datum;
+                    if (item.Id != datum.Id || item.SomePayload != datum.SomePayload)
+                    {
+                        throw new Exception("Ouch. Unexpected item.");
+                    }
+                    if (a % accessPercent == 0)
+                    {
+                        Console.Write(".");
+                    }
                 }
-                if (a % accessPercent == 0)
-                {
-                    Console.Write(".");
-                }
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Time... {0}", DateTime.Now.ToString("HH:mm:ss.fff"));
+                Console.WriteLine();
+                Console.WriteLine("Elapsed: {0} ms", (period1 = time1.ElapsedMilliseconds).ToString("0,0"));
+                Console.WriteLine("Latency: {0} ms (avg.)", period1 / RandomAccessCount);
             }
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("Time... {0}", DateTime.Now.ToString("HH:mm:ss.fff"));
-            Console.WriteLine();
-            Console.WriteLine("Elapsed: {0} ms", (period1 = time1.ElapsedMilliseconds).ToString("0,0"));
-            Console.WriteLine("Latency: {0} ms (avg.)", period1 / RandomAccessCount);
 
             Console.WriteLine();
-            Console.WriteLine("Press any key...");
-            Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine("About to stress our System.Runtime.Caching.Generic.MemoryCache...");
-            Console.WriteLine();
-            Console.WriteLine("Total datum count : {0}", TOTAL_DATUM_COUNT.ToString("0,0"));
-            Console.WriteLine();
-            Console.WriteLine("Number of random accesses to perform : {0}", RandomAccessCount.ToString("0,0"));
-            Console.WriteLine();
-            Console.WriteLine("Press any key (and hang on)...");
-            Console.WriteLine();
-            Console.WriteLine("(# of cache evictions shown in parentheses)...");
-            Console.WriteLine();
-            Console.ReadKey();
-            Console.WriteLine("Time... {0}", DateTime.Now.ToString("HH:mm:ss.fff"));
-            Console.WriteLine();
-
-            var evictedCount = 0;
-            ourMemCache.Policy.OnEvict =
-                delegate(IManagedCache<int, Datum> source, int key, Datum value, EvictionReason reason)
-                {
-                    evictedCount++;
-                };
-            var time2 = Time.Start();
-            var period2 = 0d;
-            var misses = 0;
-            for (var a = 0; a < access.Length; a++)
+            Console.WriteLine("Press ESC to skip, or any other key to start stressing our memory cache.");
+            if (Console.ReadKey().KeyChar != 27)
             {
-                var index = access[a];
-                var datum = data[index];
-                var item = ourMemCache.GetOrAdd(datum.Id, (Func<object, Datum>)delegate(object context){ misses++; return datum; });
-                if (item.Id != datum.Id || item.SomePayload != datum.SomePayload)
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine("About to stress our System.Runtime.Caching.Generic.MemoryCache...");
+                Console.WriteLine();
+                Console.WriteLine("Total datum count : {0}", TOTAL_DATUM_COUNT.ToString("0,0"));
+                Console.WriteLine();
+                Console.WriteLine("Number of random accesses to perform : {0}", RandomAccessCount.ToString("0,0"));
+                Console.WriteLine();
+                Console.WriteLine("Press any key (and hang on)...");
+                Console.WriteLine();
+                Console.WriteLine("(# of cache evictions shown in parentheses)...");
+                Console.WriteLine();
+                Console.ReadKey();
+                Console.WriteLine("Time... {0}", DateTime.Now.ToString("HH:mm:ss.fff"));
+                Console.WriteLine();
+
+                var evictedCount = 0;
+                ourMemCache.Policy.OnEvict =
+                    delegate(IManagedCache<int, Datum> source, int key, Datum value, EvictionReason reason)
+                    {
+                        evictedCount++;
+                    };
+                var time2 = Time.Start();
+                var period2 = 0d;
+                var misses = 0;
+                for (var a = 0; a < access.Length; a++)
                 {
-                    throw new Exception("Ouch. Unexpected item.");
+                    var index = access[a];
+                    var datum = data[index];
+                    var item = ourMemCache.GetOrAdd(datum.Id, (Func<object, Datum>)delegate(object context) { misses++; return datum; });
+                    if (item.Id != datum.Id || item.SomePayload != datum.SomePayload)
+                    {
+                        throw new Exception("Ouch. Unexpected item.");
+                    }
+                    if (a % accessPercent == 0)
+                    {
+                        Console.Write("({0})", evictedCount);
+                        evictedCount = 0;
+                    }
                 }
-                if (a % accessPercent == 0)
-                {
-                    Console.Write("({0})", evictedCount);
-                    evictedCount = 0;
-                }
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Time... {0}", DateTime.Now.ToString("HH:mm:ss.fff"));
+                Console.WriteLine();
+                Console.WriteLine("Elapsed: {0} ms", (period2 = time2.ElapsedMilliseconds).ToString("0,0"));
+                Console.WriteLine("Latency: {0} ms (avg.)", period2 / RandomAccessCount);
+                Console.WriteLine("Initial cache capacity: {0}", ourMemCache.Capacity.ToString("0,0"));
+                Console.WriteLine("Final cache size: {0}", ourMemCache.Count.ToString("0,0"));
+                Console.WriteLine("No. cache misses: {0}", misses.ToString("0,0"));
+                Console.WriteLine("Cache fill ratio: {0}%", (100 * ourMemCache.Count / ourMemCache.Capacity).ToString(".00"));
             }
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("Time... {0}", DateTime.Now.ToString("HH:mm:ss.fff"));
-            Console.WriteLine();
-            Console.WriteLine("Elapsed: {0} ms", (period2 = time2.ElapsedMilliseconds).ToString("0,0"));
-            Console.WriteLine("Latency: {0} ms (avg.)", period2 / RandomAccessCount);
-            Console.WriteLine("Initial cache capacity: {0}", ourMemCache.Capacity.ToString("0,0"));
-            Console.WriteLine("Final cache size: {0}", ourMemCache.Count.ToString("0,0"));
-            Console.WriteLine("No. cache misses: {0}", misses.ToString("0,0"));
-            Console.WriteLine("Cache fill ratio: {0}%", (100 * ourMemCache.Count / ourMemCache.Capacity).ToString(".00"));
         }
 
         public class Datum
