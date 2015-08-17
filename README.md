@@ -10,7 +10,7 @@ System.Runtime.Caching.Generic
 Overview
 --------
 
-This is a lightweight, strongly-typed, generic, extensible, and thread-safe, N-way set-associative, in-process (memory) cache, coming with 4 built-in eviction / replacement policies (LRU, MRU, LFU, none).
+This is a lightweight, strongly-typed, generic, extensible, and thread-safe, N-way set-associative, in-process (memory) cache, coming with 4 built-in eviction / replacement policies ([LRU, MRU, LFU](https://en.wikipedia.org/wiki/Cache_algorithms#Examples), none).
 
 The TestApp console application accompanying the library comes with a few (NUnit) tests wrt. correctness, robustness, and extensibility, along with a basic comparative performance / stress test vs. Microsoft's System.Runtime.Caching introduced in .NET 4.0.
 
