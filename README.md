@@ -1,3 +1,13 @@
+About
+-----
+
+This fork serves the primary purpose of hosting the following nuget package:
+```
+PM> Install-Package System.Runtime.Caching.Generic
+```
+Commits from the original author, along with my own improvements will be merged here.
+
+
 System.Runtime.Caching.Generic
 ==============================
 
