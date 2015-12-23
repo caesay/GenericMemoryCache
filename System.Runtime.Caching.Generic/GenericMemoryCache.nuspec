@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>caesay.GenericMemoryCache</id>
+    <version>$version$</version>
+    <title>caesay.GenericMemoryCache</title>
+    <authors>caesay</authors>
+    <owners>caesay</owners>
+    <licenseUrl>https://github.com/caesay/GenericMemoryCache/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/caesay/GenericMemoryCache</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This is a lightweight, strongly-typed, generic, extensible, and thread-safe, N-way set-associative, in-process (memory) cache, coming with 4 built-in eviction / replacement policies (LRU, MRU, LFU, none).</description>
+    <copyright>Copyright (c) 2015 Cyril Jandia</copyright>
+    <tags>Generic MemoryCache Net</tags>
+  </metadata>
+</package>
